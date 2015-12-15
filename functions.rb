@@ -1,27 +1,24 @@
-class RubyHomework
+#class RubyHomework
   # Return a reversed copy of the array
 
-  def self.reverse
+
+  def reverse(an_array)
     # TODO write your code here
-    puts [1, 2, 3].reverse
+    an_array.reverse
   end
+  puts reverse([1, 'foo', 3, 5]).inspect
 
-
-  # Return a map of letters and counts of letters
-  # Letters should be lowercase before counting
-  # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
-  def self.histogram
-    # TODO write your code here
-      puts histogram('Louisiana')
-  end
-
-  # Sum all the numbers in the array
+ # Sum all the numbers in the array
   # an_array can contain lots of different things
   # Be sure to only sum the numbers
   # (Hint: the is_a? method might be useful here)
   def sum_only_numbers(an_array)
     # TODO write your code here
+    sum = 0
+    an_array.each { |y| sum+=y if y.is_a?Numeric }
+    sum
   end
+  puts sum_only_numbers([1, 'foo', 3, 5]).inspect
 
   # For i from 1 to 100, return an array.
   # The elements in the array should follow this algorithm:
@@ -30,9 +27,31 @@ class RubyHomework
   # If i is a multiple of 3 and 5, the element is 'FizzBuzz'
   # Otherwise, the element is simply the value of i
   # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
-  def fizzbuzz
+  def fizzbuzz(an_array)
     # TODO write your code here
+
+    an_array.select do |i|
+      if i % 3 == 'Fizz'
+        if i % 5 == 'Buzz'
+          if i % 3 & i % 5 == 'FizzBuzz'
+          end
+        end
+      end
+    end
   end
+puts fizzbuzz([1..100]).join("\n").inspect
+  # Return a map of letters and counts of letters
+  # Letters should be lowercase before counting
+  # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
+  def histogram(a_string)
+    # TODO write your code here
+    a_string.downcase!
+    histogram(a_string)
+  end
+  puts histogram('French food is the absolute best').inspect
+
+
+
 
   # Uncomment a line to test the function you are developing
   # puts reverse([3,6,'dog']).inspect
@@ -40,4 +59,6 @@ class RubyHomework
   # puts histogram('The Quick brown fox').inspect
   # puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
   # puts fizzbuzz.join("\n")
-end
+
+
+
