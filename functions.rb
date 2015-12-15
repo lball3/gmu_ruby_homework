@@ -27,19 +27,20 @@
   # If i is a multiple of 3 and 5, the element is 'FizzBuzz'
   # Otherwise, the element is simply the value of i
   # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
-  def fizzbuzz(an_array)
+  def fizzbuzz(arr)
     # TODO write your code here
 
-    an_array.select do |i|
+    arr.select do |i|
       if i % 3 == 'Fizz'
+        puts i
         if i % 5 == 'Buzz'
-          if i % 3 & i % 5 == 'FizzBuzz'
+          if i % 3 and i % 5 == 'FizzBuzz'
           end
         end
       end
     end
   end
-puts fizzbuzz([1..100]).join("\n").inspect
+puts fizzbuzz([*1..100]).inspect
   # Return a map of letters and counts of letters
   # Letters should be lowercase before counting
   # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
