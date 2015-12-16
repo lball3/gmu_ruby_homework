@@ -57,12 +57,14 @@
   # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
   def histogram(a_string)
     a_string = a_string.downcase
+    words = a_string.split(" ")
+    frequencies = Hash.new(0)
+    words.each { |word| frequencies[word] += 1}
+    frequencies = frequencies.sort_by { |a, b| b }
+    frequencies.reverse!
 
-
+    return frequencies
   end
-  puts histogram('French food is the absolute best').inspect
-
-
 
 
   # Uncomment a line to test the function you are developing
