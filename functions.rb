@@ -3,22 +3,28 @@
 
 
   def reverse(an_array)
-    # TODO write your code here
-    an_array.reverse
+
+    arr = []
+
+    arr << an_array.reverse
+
+    return arr
   end
-  puts reverse([1, 'foo', 3, 5]).inspect
+
 
  # Sum all the numbers in the array
   # an_array can contain lots of different things
   # Be sure to only sum the numbers
   # (Hint: the is_a? method might be useful here)
   def sum_only_numbers(an_array)
-    # TODO write your code here
+
     sum = 0
+
     an_array.each { |y| sum+=y if y.is_a?Numeric }
-    sum
+
+    return sum
   end
-  puts sum_only_numbers([1, 'foo', 3, 5]).inspect
+
 
   # For i from 1 to 100, return an array.
   # The elements in the array should follow this algorithm:
@@ -27,27 +33,32 @@
   # If i is a multiple of 3 and 5, the element is 'FizzBuzz'
   # Otherwise, the element is simply the value of i
   # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
-  def fizzbuzz(arr)
-    # TODO write your code here
+  def fizzbuzz
 
-    arr.select do |i|
-      if i % 3 == 'Fizz'
-        puts i
-        if i % 5 == 'Buzz'
-          if i % 3 and i % 5 == 'FizzBuzz'
-          end
-        end
+    output = []
+
+    (1..100).each do |i|
+      if (i % 3 == 0) && (i % 5 == 0)
+        output << "Fizzbuzz"
+      elseif (i % 3 == 0)
+        output << "Fizz"
+      elseif (i % 5 == 0)
+        output << "Buzz"
+      else
+        output << i
       end
     end
+
+    return output
   end
-puts fizzbuzz([*1..100]).inspect
+
   # Return a map of letters and counts of letters
   # Letters should be lowercase before counting
   # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
   def histogram(a_string)
-    # TODO write your code here
-    a_string.downcase!
-    histogram(a_string)
+    a_string = a_string.downcase
+
+
   end
   puts histogram('French food is the absolute best').inspect
 
